@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-black font-fancy;
+}
+
+@keyframes fall {
+  0% {
+    top: -50px;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fall {
+  animation: fall 5s linear infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-1px, 1px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}

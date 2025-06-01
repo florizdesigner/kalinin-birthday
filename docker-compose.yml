@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  client:
+    build: client-2
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+    environment:
+      - NODE_ENV=production
+    networks:
+      - fila-network
+
+  server:
+    build: ./server
+    ports:
+      - "8888:8888"
+    environment:
+      - PORT=8888
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    networks:
+      - fila-network
+
+networks:
+  fila-network:
+    driver: bridge
