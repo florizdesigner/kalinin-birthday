@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {motion, AnimatePresence} from 'framer-motion';
-import {Link} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
+import OrderFinishPage from "./OrderFinishPage";
 
 const Form = () => {
     const [links, setLinks] = useState('');
@@ -8,6 +9,7 @@ const Form = () => {
     const [showSnackbar, setShowSnackbar] = useState(false);
     const [snackbarText, setSnackbarText] = useState('');
     const [isSuccessfulSnackbar, setIsSuccessfulSnackbar] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,7 +33,10 @@ const Form = () => {
                 setIsSuccessfulSnackbar(true);
                 setSnackbarText("Запросик улетел");
                 setShowSnackbar(true);
-                setTimeout(() => setShowSnackbar(false), 3000);
+                setTimeout(() => {
+                    setShowSnackbar(false)
+                    navigate("/success")
+                }, 3000);
                 return;
             })
             .catch((err) => {
