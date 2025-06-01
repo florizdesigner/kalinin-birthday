@@ -24,7 +24,7 @@ app.post('/api/submit-order', async (req, res) => {
         }
 
         // Format message for Telegram
-        const message = `🎉 Новый заказ шмоток! 🎄\n\n🔗 Ссылки: ${JSON.stringify(links)}\n💬 Комментарий: ${JSON.stringify(comment)}`;
+        const message = `🎉 Новый заказ шмоток! 🎄\n\n🔗 Ссылки: ${JSON.stringify(links)}\n💬 Комментарий: ${JSON.stringify(description)}`;
 
         // Send to Telegram
         await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
