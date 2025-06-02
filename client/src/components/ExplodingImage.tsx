@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import explosionSoundSrc from '../assets/explosion.mp3';
+// import explosionSoundSrc from '../assets/explosion.mp3';
 import imageSrc from '../assets/fila.png';
 import Particles from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
@@ -135,7 +135,6 @@ export default function ExplodingImage({ onComplete }: { onComplete: () => void 
     return (
         <>
             <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full z-30 pointer-events-none" />
-            <audio ref={audioRef} src={explosionSoundSrc} preload="auto" />
 
             {/* Дым */}
             {showSmoke && (
